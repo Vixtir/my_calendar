@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  main_title: "My Calendar project"
+  main_text: "U can use this project for create ur sheduler calendar. You can create/edit your event, show ur event list, show all users event list"
+  login: "Log in"
