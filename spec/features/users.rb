@@ -47,7 +47,7 @@ RSpec.describe "User" do
 		end
 
 		context "not registred user" do
-			context "click log in link" do
+			context "click log_in link" do
 				before do
 					click_button I18n.t('login.link')
 				end
@@ -127,7 +127,26 @@ RSpec.describe "User" do
 				end
 			end
 
-			
+
 		end
 	end
+  
+  context "registration" do
+  	before do
+  		@user = build_stubbed(:user)
+  		visit new_home_user_path
+  		fill_in "user_email", with: @user.email
+      fill_in "user_password", with: @user.password
+      fill_in "user_password_confirmation", with: @user.password_confirmation
+      click_button I18n.t('signup')
+  	end
+
+  	it "with valid information" do
+      expect(current_path).to eql dashboard_welcome_path
+  	end
+
+  	it "have succesfull registrate alert" do
+  		expect(page).to have_content I18n.t('registrate.success')
+  	end
+  end
 end
