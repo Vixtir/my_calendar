@@ -126,8 +126,6 @@ RSpec.describe "User" do
 					expect(page).to have_selector 'input[value="Registrate"]'
 				end
 			end
-
-
 		end
 	end
   
