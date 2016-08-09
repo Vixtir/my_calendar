@@ -14,4 +14,8 @@ RSpec.describe "home/welcome/index", :type => :view do
 	it "should contain log_in text" do
 		expect(rendered).to have_content t('login')
 	end
+
+	it "should have link for registration" do
+		expect(rendered).to have_link t("signup")  
+	end	
 end

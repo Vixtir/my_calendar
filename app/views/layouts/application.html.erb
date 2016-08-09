@@ -6,8 +6,14 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<%= render partial: "layouts/header" %>
 <body>
-
+<% if errors.any? %>
+	<%= render partial: "shares/errors_messages" %>
+<% end %>
+<% if flash.any? %>
+	<%= render partial: "shared/flash_messages", flash: flash %>
+<% end %>
 <%= yield %>
 
 </body>

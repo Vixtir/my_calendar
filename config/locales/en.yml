@@ -20,7 +20,27 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    models:
+      user: "User"
+    attributes:
+      user:
+        email: "Email"
+        password: "Password"
+        full_name: "Full name"
+        password_confirmation: "Password confirmation"
   hello: "Hello world"
   main_title: "My Calendar project"
   main_text: "U can use this project for create ur sheduler calendar. You can create/edit your event, show ur event list, show all users event list"
-  login: "Log in"
+  logout:
+    link: "log out"
+    message: "You have been signed off!"
+  signup: "Registrate"
+  not_authenticated: "Please login first"
+  registrate:
+    fail: "Please fix all errors"
+    success: "Welcome"
+  login:
+    link: "Log in"
+    fail: "Login failed"
+    success: "Login successful"  
