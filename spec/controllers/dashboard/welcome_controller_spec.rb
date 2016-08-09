@@ -5,6 +5,7 @@ RSpec.describe Dashboard::WelcomeController, type: "controller" do
     get :index
     expect(response).to redirect_to("/home/welcome")
   end
+
   describe "authenticated user" do
   	before do
       @user = create(:user)
@@ -20,7 +21,6 @@ RSpec.describe Dashboard::WelcomeController, type: "controller" do
 	  it "renders the index template" do
         get :index
         expect(response).to render_template("index")
-      end
-	end
+	  end
   end
 end
