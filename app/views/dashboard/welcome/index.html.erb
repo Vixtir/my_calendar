@@ -1,3 +1,12 @@
 <%= current_user.email %>
-
+<%= link_to t('event.create.link'), new_dashboard_user_event_path(current_user)  %>
+<%= link_to t('user.edit.link'), edit_dashboard_user_path(current_user) %>
+<ul>
+	<% @events.each do |event| %>
+	  <li>
+	  	<%= event.title %> <%= event.date %>
+	  </li>	
+	<% end %>
+</ul>>	
 <div id="calendar"></div>
+

@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     get "/welcome" => "welcome#index"
 
     post 'logout' => 'user_sessions#destroy', :as => :logout
+    resources :users, only: [:index, :show, :edit, :update] do
+      resources :events
+    end  
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

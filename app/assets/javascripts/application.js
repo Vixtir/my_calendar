@@ -22,6 +22,17 @@ $(document).ready(function() {
     // page is now ready, initialize the calendar...
 
     $('#calendar').fullCalendar({
-        // put your options and callbacks here
+        eventSources: [
+
+        // your event source
+	        {
+	            url: '/dashboard/welcome.json', // use the `url` property
+	            color: 'yellow',    // an option!
+	            textColor: 'black'  // an option!
+	        }
+
+        // any other sources...
+
+    	]
     })
 });

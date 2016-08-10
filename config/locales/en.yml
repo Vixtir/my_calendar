@@ -43,4 +43,10 @@ en:
   login:
     link: "Log in"
     fail: "Login failed"
-    success: "Login successful"  
+    success: "Login successful"
+  event:
+    create:
+      link: "Create new event"
+  user:
+    edit:
+      link: "Edit profile"        

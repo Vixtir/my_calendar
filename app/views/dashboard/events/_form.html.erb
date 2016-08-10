@@ -1,0 +1,13 @@
+<% if @event.errors.any? %>
+  <%= render "shared/errors", item: @event %>
+<% end %>
+
+<%= form_for @event, url: dashboard_user_events_path do |f|%>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :date %>
+  <%= f.date_select :date %>
+
+  <%= f.submit %>
+<% end %>
