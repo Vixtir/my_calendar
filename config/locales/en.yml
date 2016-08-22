@@ -49,4 +49,6 @@ en:
       link: "Create new event"
   user:
     edit:
-      link: "Edit profile"        
+      link: "Edit profile"
+  all_events: "All events"
+  home: "Home"            

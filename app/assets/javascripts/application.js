@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require moment 
 //= require fullcalendar
-//= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
@@ -33,6 +32,33 @@ $(document).ready(function() {
 
         // any other sources...
 
-    	]
+    	],
+    eventClick: function(event) {
+        if (event.url) {
+            window.open(event.url);
+            return false;
+        }
+    }
+    })
+
+    $('#calendar_2').fullCalendar({
+        eventSources: [
+
+        // your event source
+            {
+                url: '/dashboard/all_events.json', // use the `url` property
+                color: 'yellow',    // an option!
+                textColor: 'black'  // an option!
+            }
+
+        // any other sources...
+
+        ],
+    eventClick: function(event) {
+        if (event.url) {
+            window.open(event.url);
+            return false;
+        }
+    }
     })
 });

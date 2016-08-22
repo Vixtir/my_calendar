@@ -15,6 +15,21 @@ class Dashboard::EventsController < ApplicationController
 		end
 	end
 
+	def edit
+		@user = current_user
+		@event = @user.events.find_by(id: params[:id])
+	end
+
+	def update
+		@user = current_user
+		@event = @user.events.find_by(id: params[:id])
+		if @event.update_attributes(event_params)
+			redirect_to dashboard_welcome_path
+		else
+			render :edit
+		end
+	end
+
 	private
 
 	def event_params
