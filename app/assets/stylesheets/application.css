@@ -12,6 +12,7 @@
  *
  *= require fullcalendar
  *= require fullcalendar.print
+ *= require recurring_select
  *= require_tree .
  *= require_self
  */

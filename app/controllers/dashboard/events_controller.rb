@@ -7,7 +7,7 @@ class Dashboard::EventsController < ApplicationController
 
 	def create
 		@event = current_user.events.create(event_params)
-
+    pry
 		if @event.save
 			redirect_to dashboard_welcome_path
 		else

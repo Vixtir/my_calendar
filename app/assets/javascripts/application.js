@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require moment 
 //= require fullcalendar
+//= require recurring_select
 //= require_tree .
 
 $(document).ready(function() {
