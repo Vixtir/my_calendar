@@ -1,5 +1,5 @@
 class AddScheduleToEvents < ActiveRecord::Migration
   def change
-    add_column :events, :schedule, :string
+    add_column :events, :schedule, :text
   end
 end

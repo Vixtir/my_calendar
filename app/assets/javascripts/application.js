@@ -22,6 +22,13 @@ $(document).ready(function() {
     // page is now ready, initialize the calendar...
 
     $('#calendar').fullCalendar({
+        header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+        eventLimit: true,
+        height: 650,
         eventSources: [
 
         // your event source
@@ -33,33 +40,28 @@ $(document).ready(function() {
 
         // any other sources...
 
-    	],
-    eventClick: function(event) {
-        if (event.url) {
-            window.open(event.url);
-            return false;
-        }
-    }
+    	]
     })
 
     $('#calendar_2').fullCalendar({
+        header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+        eventLimit: true,
+        height: 650,
         eventSources: [
 
         // your event source
             {
-                url: '/dashboard/all_events.json', // use the `url` property
+                url: '/dashboard/welcome.json', // use the `url` property
                 color: 'yellow',    // an option!
                 textColor: 'black'  // an option!
             }
 
         // any other sources...
 
-        ],
-    eventClick: function(event) {
-        if (event.url) {
-            window.open(event.url);
-            return false;
-        }
-    }
+        ]
     })
 });
