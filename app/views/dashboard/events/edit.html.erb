@@ -7,7 +7,7 @@
   <%= f.text_field :title %>
 
   <%= f.label :date %>
-  <%= f.date_select :date %>
+  <%= f.text_field :date , class: "datepicker", :value => @event.date.strftime("%d.%m.%Y") %>
   <%= f.select_recurring :recurring_rule %>
   <%= f.submit %>
 <% end %>

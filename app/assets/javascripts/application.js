@@ -13,8 +13,10 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require moment 
 //= require fullcalendar
+//= require bootstrap-datepicker
 //= require recurring_select
 //= require_tree .
 
@@ -41,7 +43,12 @@ $(document).ready(function() {
         // any other sources...
 
     	]
-    })
+    });
+
+    $('.datepicker').datepicker({
+        "language": 'ru',
+        "autoclose": true
+    });
 
     $('#calendar_2').fullCalendar({
         header: {
