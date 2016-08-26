@@ -1,7 +1,0 @@
-<header>
-<%= console %>
-	<% if current_user %>
-		<%= link_to t('logout.link'), dashboard_logout_path, method: :post %>
-	<% end %>
-	<%= link_to t('home'), root_path %>
-</header>

@@ -45,12 +45,12 @@ $(document).ready(function() {
     	]
     });
 
-    $('.datepicker').datepicker({
+    $('input#event_date').datepicker({
         "language": 'ru',
         "autoclose": true
     });
 
-    $('#calendar_2').fullCalendar({
+    $('#calendar_all_event').fullCalendar({
         header: {
                 left: 'prev,next today',
                 center: 'title',

@@ -31,7 +31,7 @@ en:
         password_confirmation: "Password confirmation"
   hello: "Hello world"
   main_title: "My Calendar project"
-  main_text: "U can use this project for create ur sheduler calendar. You can create/edit your event, show ur event list, show all users event list"
+  main_text_html: "U can use this project for create ur sheduler calendar. <br>You can create/edit your event, show ur event list, show all users event list"
   logout:
     link: "log out"
     message: "You have been signed off!"

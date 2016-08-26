@@ -1,6 +1,0 @@
-<%= current_user.email %>
-<%= link_to t('event.create.link'), new_dashboard_user_event_path(current_user)  %>
-<%= link_to t('user.edit.link'), edit_dashboard_user_path(current_user) %>
-<%= link_to t('all_events'), dashboard_all_events_path %>
-<%= link_to t('all_events'), dashboard_welcome_path(:all => "true") %>
-<div id="calendar"></div>

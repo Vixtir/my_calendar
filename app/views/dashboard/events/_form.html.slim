@@ -1,0 +1,15 @@
+- if @event.errors.any?
+  = render "shared/errors", item: @event
+= simple_form_for @event, url: dashboard_user_events_path do |f|
+  .row
+    .col-xs-3
+      = f.input :title
+  .row
+    .col-xs-3
+      = f.input :date , class: "datepicker"
+  .row
+    .col-xs-4
+      = f.select_recurring :recurring_rule
+  .row
+    .col-xs-4
+      = f.button :submit

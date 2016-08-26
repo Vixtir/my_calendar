@@ -6,7 +6,7 @@ class Home::UsersController < ApplicationController
 
 	def create
 		@user = User.create(user_params)
-		if @user.save!
+		if @user.save
 			auto_login(@user)
 			redirect_to dashboard_welcome_path
 			flash[:alert] = t("registrate.success")
