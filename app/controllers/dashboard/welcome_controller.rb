@@ -2,7 +2,11 @@ class Dashboard::WelcomeController < ApplicationController
 	before_action :require_login
 
 	def show
-		@events = current_user.events
+		if params[:all].present?
+			@events = Event.all
+		else
+			@events = current_user.events
+		end
 		respond_to do |format|
 			format.html
 			format.json

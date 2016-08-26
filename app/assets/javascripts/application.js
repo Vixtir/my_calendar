@@ -62,7 +62,7 @@ $(document).ready(function() {
 
         // your event source
             {
-                url: '/dashboard/welcome.json', // use the `url` property
+                url: '/dashboard/all_events.json', // use the `url` property
                 color: 'yellow',    // an option!
                 textColor: 'black'  // an option!
             }
