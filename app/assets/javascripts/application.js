@@ -21,7 +21,14 @@
 //= require_tree .
 
 $(document).ready(function() {
-    // page is now ready, initialize the calendar...
+    var cal_url_func = function(){
+        if($('li.all_event').length){
+          result = '/dashboard/welcome.json'
+        } else {
+          result = '/dashboard/welcome.json?all=1'
+        }
+        return result
+    };
 
     $('#calendar').fullCalendar({
         header: {
@@ -32,16 +39,10 @@ $(document).ready(function() {
         eventLimit: true,
         height: 650,
         eventSources: [
-
-        // your event source
-	        {
-	            url: '/dashboard/welcome.json', // use the `url` property
-	            color: 'yellow',    // an option!
-	            textColor: 'black'  // an option!
-	        }
-
-        // any other sources...
-
+            {
+                url: cal_url_func(),
+                textColor: 'black'
+            }
     	]
     });
 
@@ -49,26 +50,4 @@ $(document).ready(function() {
         "language": 'ru',
         "autoclose": true
     });
-
-    $('#calendar_all_event').fullCalendar({
-        header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-        eventLimit: true,
-        height: 650,
-        eventSources: [
-
-        // your event source
-            {
-                url: '/dashboard/all_events.json', // use the `url` property
-                color: 'yellow',    // an option!
-                textColor: 'black'  // an option!
-            }
-
-        // any other sources...
-
-        ]
-    })
 });

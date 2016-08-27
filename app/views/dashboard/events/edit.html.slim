@@ -6,8 +6,7 @@
       = f.input :title
   .row
     .col-xs-3
-      = f.input :date , class: "datepicker"
-  .row
+      = f.text_field :date , class: "datepicker", :value => @event.date.strftime("%d.%m.%Y")
     .col-xs-4
       = f.select_recurring :recurring_rule
   .row
