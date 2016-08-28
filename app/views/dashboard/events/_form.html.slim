@@ -1,13 +1,14 @@
 - if @event.errors.any?
   = render "shared/errors", item: @event
-= simple_form_for @event, url: dashboard_user_events_path do |f|
+- if day = @event.date.nil? ? Date.today.strftime("%d.%m.%Y") : @event.date.strftime("%d.%m.%Y")
+= simple_form_for(event, url: url) do |f|
   .row
     .col-xs-4
       = f.input :title
   .row
     .col-xs-2
       = f.label :date
-      = f.text_field :date , class: "datepicker"
+      = f.text_field :date , class: "datepicker", value: day
     .col-xs-2
       = f.label :recurring_rule
       = f.select_recurring :recurring_rule
