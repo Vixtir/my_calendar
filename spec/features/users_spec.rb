@@ -35,7 +35,7 @@ RSpec.describe "User" do
 		end
 
 		it "see log_in button" do
-			expect(page).not_to have_content I18n.t('login.link')
+			expect(page).to have_content I18n.t('login.link')
 		end
 
 		it "have link to registrate" do
@@ -46,8 +46,8 @@ RSpec.describe "User" do
 			expect(page).not_to have_button I18n.t('logout.link')
 		end
 
-		context "not registred user" do
-			context "click log_in link" do
+		context "if he not registred" do
+			context "and click log_in link would " do
 				before do
 					click_button I18n.t('login.link')
 				end
@@ -123,7 +123,7 @@ RSpec.describe "User" do
 				end
 
 				it "have registrate button" do
-					expect(page).to have_selector 'input[value="Registrate"]'
+					expect(page).to have_button I18n.t('signup')
 				end
 			end
 		end

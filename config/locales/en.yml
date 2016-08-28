@@ -30,10 +30,10 @@ en:
         full_name: "Full name"
         password_confirmation: "Password confirmation"
   hello: "Hello world"
-  main_title: "My Calendar project"
-  main_text_html: "U can use this project for create ur sheduler calendar. <br>You can create/edit your event, show ur event list, show all users event list"
+  main_title: "My Calendar"
+  main_text: "U can use this project for create ur sheduler calendar.You can create/edit your event, show ur event list, show all users event list"
   logout:
-    link: "log out"
+    link: "Log out"
     message: "You have been signed off!"
   signup: "Registrate"
   not_authenticated: "Please login first"
@@ -44,21 +44,17 @@ en:
     link: "Log in"
     fail: "Login failed"
     success: "Login successful"
-  event:
-    create:
-      link: "Create new event"
   user:
     edit:
       link: "Edit profile"
+  my_events: "My events"
   all_events: "All events"
   home: "Home"
-  datepicker:
-    dformat: '%d/%m/%Y'             # display format of the date (this is the default, can be ommited)
-    pformat: 'DD/MM/YYYY'           # picking format of the date (this is the default, can be ommited)
-  timepicker:
-    dformat: '%R'                   # display format of the time (this is the default, can be ommited)
-    pformat: 'HH:mm'                # picking format of the time (this is the default, can be ommited)
-  dayViewHeaderFormat: 'MMMM YYYY'  # picking format of the time (this is the default, can be ommited)
-  date:
-    formats:
-      default: '%d.%m.%Y'
+  event:
+    create:
+      link: "Create new event"
+      success: "Event has been created successfully"
+      error: "Please try again"
+    update:
+      success: "Event has been updated successfully"
+      error: "Please try again"

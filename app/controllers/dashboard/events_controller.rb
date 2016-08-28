@@ -9,9 +9,11 @@ class Dashboard::EventsController < ApplicationController
 		@event = current_user.events.create(event_params)
     @event.schedule = set_schedule
 		if @event.save
-			redirect_to dashboard_welcome_path
+			redirect_to root_path
+			flash[:success] = t('event.create.success')
 		else
-			render "new"
+			render :new
+      flash.now[:alert] = t('event.create.error')
 		end
 	end
 
@@ -25,9 +27,11 @@ class Dashboard::EventsController < ApplicationController
 		@event = @user.events.find_by(id: params[:id])
     @event.schedule = set_schedule
  		if @event.update_attributes(event_params)
-			redirect_to dashboard_welcome_path
+			redirect_to root_path
+			flash[:success] = t('event.update.success')
 		else
 			render :edit
+      flash.now[:alert] = t('event.update.error')
 		end
   end
 

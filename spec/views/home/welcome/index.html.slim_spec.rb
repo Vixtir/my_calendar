@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "home/welcome/index", :type => :view do
-	before { render }
+	before { render template: "home/welcome/index", layout: "layouts/application"}
 
 	it "should contain main title" do
 		expect(rendered).to have_content t('main_title')
@@ -11,8 +11,8 @@ RSpec.describe "home/welcome/index", :type => :view do
 		expect(rendered).to have_content t('main_text')
 	end
 
-	it "should contain log_in text" do
-		expect(rendered).to have_content t('login')
+	it "should contain link for log in" do
+		expect(rendered).to have_content t('login.link')
 	end
 
 	it "should have link for registration" do

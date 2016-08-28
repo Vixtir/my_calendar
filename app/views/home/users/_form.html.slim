@@ -1,8 +1,8 @@
-.row
-  .col-xs-3
-    = simple_form_for(@user, url: home_users_path, html: { class: 'form-horizontal' }) do |f|
-      = f.input :full_name
-      = f.input :email
-      = f.input :password
-      = f.input :password_confirmation
-      = f.button :submit
+.col-xs-3
+  = simple_form_for(@user, url: home_users_path) do |f|
+    .form-group
+      = f.input :full_name, required: false
+      = f.input :email, placeholder: 'user@domain.com', required: true
+      = f.input :password, input_html: { minlength: 3 }, required: true
+      = f.input :password_confirmation, required: false
+      = f.button :submit, t('signup'), class: 'btn btn-primary'
