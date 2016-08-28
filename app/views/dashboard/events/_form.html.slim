@@ -1,5 +1,3 @@
-- if @event.errors.any?
-  = render "shared/errors", item: @event
 - if day = @event.date.nil? ? Date.today.strftime("%d.%m.%Y") : @event.date.strftime("%d.%m.%Y")
 = simple_form_for(event, url: url) do |f|
   .row
