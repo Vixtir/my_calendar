@@ -72,7 +72,7 @@ RSpec.describe Dashboard::EventsController, type: "controller" do
         @event.reload
       end
 
-      it "responcse 302 status" do
+      it "response 302 status" do
         expect(response).to have_http_status 302
       end
 

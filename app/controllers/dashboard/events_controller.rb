@@ -5,6 +5,17 @@ class Dashboard::EventsController < ApplicationController
 		@event = current_user.events.build
 	end
 
+  def index
+    if params[:all].present?
+      @events = Event.all
+    else
+      @events = current_user.events
+    end
+    respond_to do |format|
+       format.json
+    end
+  end
+
 	def create
 		@event = current_user.events.create(event_params)
     @event.schedule = set_schedule

@@ -10,9 +10,9 @@
 $(document).ready(function() {
     var cal_url_func = function(){
         if($('li.all_event').length){
-          result = '/dashboard/welcome.json'
+          result = '/dashboard/events.json'
         } else {
-          result = '/dashboard/welcome.json?all=1'
+          result = '/dashboard/events.json?all=1'
         }
         return result
     };

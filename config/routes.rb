@@ -3,13 +3,6 @@ Rails.application.routes.draw do
 
   namespace :home do
     get "/welcome" => "welcome#index"  
-
-    get 'password_resets/create'
-
-    get 'password_resets/edit'
-
-    get 'password_resets/update'
-
     get 'login' => 'user_sessions#new', :as => :login
 
     resources :users, only: [:new, :create]
@@ -17,13 +10,14 @@ Rails.application.routes.draw do
   end
 
   namespace :dashboard do
-    get "/all_events" => "welcome#index"
     get "/welcome" => "welcome#show"
+    get "/events" => "events#index"
 
     post 'logout' => 'user_sessions#destroy', :as => :logout
+
     resources :users, only: [:index, :show, :edit, :update] do
       resources :events
-    end  
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
