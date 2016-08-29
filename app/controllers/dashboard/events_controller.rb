@@ -1,15 +1,16 @@
 class Dashboard::EventsController < ApplicationController
 	before_action :require_login
+  before_action :set_user
 
 	def new
-		@event = current_user.events.build
+		@event = @user.events.build
 	end
 
   def index
     if params[:all].present?
       @events = Event.all
     else
-      @events = current_user.events
+      @events = @user.events
     end
     respond_to do |format|
        format.json
@@ -17,7 +18,7 @@ class Dashboard::EventsController < ApplicationController
   end
 
 	def create
-		@event = current_user.events.create(event_params)
+		@event = @user.events.create(event_params)
     @event.schedule = set_schedule
 		if @event.save
 			redirect_to root_path
@@ -29,12 +30,10 @@ class Dashboard::EventsController < ApplicationController
 	end
 
 	def edit
-		@user = current_user
 		@event = @user.events.find_by(id: params[:id])
 	end
 
 	def update
-		@user = current_user
 		@event = @user.events.find_by(id: params[:id])
     @event.schedule = set_schedule
  		if @event.update_attributes(event_params)
@@ -54,5 +53,9 @@ class Dashboard::EventsController < ApplicationController
 
 	def event_params
 		params.require(:event).permit(:title, :date, :user_id, :recurring_rule)
+	end
+
+	def set_user
+		@user = current_user
 	end
 end

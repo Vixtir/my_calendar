@@ -1,20 +1,12 @@
 class Dashboard::UsersController < ApplicationController
 	before_action :require_login
+  before_action :set_user
 
-	def index
+	def show;	end
 
-	end
-
-	def show
-
-	end
-
-	def edit
-		@user = current_user
-	end
+	def edit;	end
 
 	def update
-		@user = current_user
 		if @user.update_attributes(user_params)
 			redirect_to dashboard_welcome_path
 		else
@@ -26,5 +18,9 @@ class Dashboard::UsersController < ApplicationController
 
 	def user_params
 		params.require(:user).permit(:full_name, :email, :password, :password_confirmation)
-	end
+  end
+
+  def set_user
+    @user = current_user
+  end
 end

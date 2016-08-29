@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
     post 'logout' => 'user_sessions#destroy', :as => :logout
 
-    resources :users, only: [:index, :show, :edit, :update] do
+    resources :users, only: [:show, :edit, :update] do
       resources :events
     end
   end
