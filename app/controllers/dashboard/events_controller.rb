@@ -1,7 +1,7 @@
 class Dashboard::EventsController < ApplicationController
 	before_action :require_login
   before_action :set_user
-
+  before_action :set_event, only: [:edit, :update]
 	def new
 		@event = @user.events.build
 	end
@@ -29,12 +29,9 @@ class Dashboard::EventsController < ApplicationController
 		end
 	end
 
-	def edit
-		@event = @user.events.find_by(id: params[:id])
-	end
+	def edit;	end
 
 	def update
-		@event = @user.events.find_by(id: params[:id])
     @event.schedule = set_schedule
  		if @event.update_attributes(event_params)
 			redirect_to root_path
@@ -57,5 +54,9 @@ class Dashboard::EventsController < ApplicationController
 
 	def set_user
 		@user = current_user
-	end
+  end
+
+  def set_event
+    @event = @user.events.find_by(id: params[:id])
+  end
 end
