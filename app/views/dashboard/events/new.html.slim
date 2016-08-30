@@ -1,0 +1,4 @@
+- if @event.errors.any?
+  = render "shared/errors", item: @event
+= render partial: "form", locals: { event: @event , url: dashboard_user_events_path}
+
