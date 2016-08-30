@@ -1,5 +1,5 @@
 class Home::UserSessionsController < ApplicationController
-	def new
+  def new
     @user = User.new
   end
 

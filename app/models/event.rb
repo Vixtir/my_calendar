@@ -7,11 +7,11 @@ class Event < ActiveRecord::Base
 
   before_save :set_schedule
 
-	belongs_to :user
+  belongs_to :user
 
-	validates :title,
-						:date,
-						presence: true
+  validates :title,
+            :date,
+            presence: true
 
   def set_schedule
     self.schedule = BuildSchedule.new(self.date, self.recurring_rule).build_schedule
