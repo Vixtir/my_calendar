@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   include IceCube
   
-  attr_accessor :recurring_rule, :color
+  attr_accessor :color
 
   serialize :schedule, IceCube::Schedule
 
@@ -15,5 +15,9 @@ class Event < ActiveRecord::Base
 
   def set_schedule
     self.schedule = BuildSchedule.new(self.date, self.recurring_rule).build_schedule
+  end
+
+  def current_rule
+    self.schedule.to_hash[:rrules]
   end
 end
