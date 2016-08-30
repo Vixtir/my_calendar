@@ -30,7 +30,7 @@ $(document).ready(function() {
                 url: cal_url_func(),
                 textColor: 'black'
             }
-    	]
+      ]
     });
 
     $('input#event_date').datepicker({

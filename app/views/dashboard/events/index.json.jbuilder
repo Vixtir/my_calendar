@@ -1,5 +1,5 @@
 @events.each do |event|
-	json.array! EventOccurance.new(event).build_occurrences(event.date, Date.today + 1.year) do |o|
+  json.array! EventOccurance.new(event).build_occurrences(event.date, Date.today + 1.year) do |o|
     json.date o.date
     json.title o.title
     if event.user == current_user

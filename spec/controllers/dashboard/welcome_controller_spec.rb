@@ -10,20 +10,20 @@ RSpec.describe Dashboard::WelcomeController, type: "controller" do
   end
 
   describe "authenticated user" do
-  	before do
+    before do
       @user = create(:user)
       login_user
-  	end
+    end
 
-	  it "authenticated user" do
-	  	get :show
-	  	expect(response).to be_success
+    it "authenticated user" do
+      get :show
+      expect(response).to be_success
       expect(response).to have_http_status(200)
-	  end
+    end
 
-	  it "renders the index template" do
-			get :show
-			expect(response).to render_template("dashboard/welcome/show")
+    it "renders the index template" do
+      get :show
+      expect(response).to render_template("dashboard/welcome/show")
     end
 
     context "get list of events" do
