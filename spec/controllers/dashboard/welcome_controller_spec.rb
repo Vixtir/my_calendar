@@ -33,7 +33,6 @@ RSpec.describe Dashboard::WelcomeController, type: "controller" do
 
       it "return status" do
         get :show, {}, { 'Accept' => Mime::JSON }
-        pry
         expect(response.status).to eq 200
       end
     end

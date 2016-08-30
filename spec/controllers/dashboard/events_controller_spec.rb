@@ -72,10 +72,6 @@ RSpec.describe Dashboard::EventsController, type: "controller" do
         @event.reload
       end
 
-      it "response 302 status" do
-        expect(response).to have_http_status 302
-      end
-
       it "change title" do
         expect(@event.title).to eql "Update my title"
       end
@@ -97,6 +93,45 @@ RSpec.describe Dashboard::EventsController, type: "controller" do
 
       it "redirect to root path" do
         expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+  context "index action" do
+    it "user have no event" do
+      expect(@user.events.count).to eq 0
+    end
+
+    it "return 200 status" do
+      get :index, format: :json
+      expect(response.status).to eq 200
+    end
+
+    it "return json formats" do
+      get :index, format: :json
+      expect(response.content_type).to eq Mime::JSON
+    end
+
+    context "user_with 1 event" do
+      before { create(:event, user: @user) }
+
+      it "user have no event" do
+        expect(@user.events.count).to eq 1
+      end
+
+      it "return 200 status" do
+        get :index, format: :json
+        expect(response.status).to eq 200
+      end
+
+      it "return json formats" do
+        get :index, format: :json
+        expect(response.content_type).to eq Mime::JSON
+      end
+
+      it "return json formats" do
+        get :index, format: :json
+        expect(response.content_type).to eq Mime::JSON
       end
     end
   end

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "User" do
+RSpec.describe "User", type: "feature" do
 	context "first visit" do
 		before do
 			visit root_path
@@ -44,7 +44,19 @@ RSpec.describe "User" do
 
 		it "dont see logout button" do
 			expect(page).not_to have_button I18n.t('logout.link')
-		end
+    end
+
+    it "dont see link for new event" do
+      expect(page).to_not have_link I18n.t('event.create.link')
+    end
+
+    it "dont see link for event lists" do
+      expect(page).to_not have_link I18n.t('all_events')
+    end
+
+    it "dont see calendar" do
+      expect(page).to_not have_selector("#calendar")
+    end
 
 		context "if he not registred" do
 			context "and click log_in link would " do
@@ -139,12 +151,13 @@ RSpec.describe "User" do
       click_button I18n.t('signup')
   	end
 
-  	it "with valid information" do
+  	it "with valid information redirect to root path" do
       expect(current_path).to eql dashboard_welcome_path
   	end
 
   	it "have succesfull registrate alert" do
   		expect(page).to have_content I18n.t('registrate.success')
-  	end
+    end
+
   end
 end

@@ -29,32 +29,6 @@ en:
         password: "Password"
         full_name: "Full name"
         password_confirmation: "Password confirmation"
-  hello: "Hello world"
-  main_title: "My Calendar"
-  main_text: "U can use this project for create ur sheduler calendar.You can create/edit your event, show ur event list, show all users event list"
-  logout:
-    link: "Log out"
-    message: "You have been signed off!"
-  signup: "Registrate"
-  not_authenticated: "Please login first"
-  registrate:
-    fail: "Please fix all errors"
-    success: "Welcome"
-  login:
-    link: "Log in"
-    fail: "Login failed"
-    success: "Login successful"
   user:
     edit:
       link: "Edit profile"
-  my_events: "My events"
-  all_events: "All events"
-  home: "Home"
-  event:
-    create:
-      link: "Create new event"
-      success: "Event has been created successfully"
-      error: "Please try again"
-    update:
-      success: "Event has been updated successfully"
-      error: "Please try again"
