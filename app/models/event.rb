@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
             presence: true
 
   scope :need_remind, -> { where('remind = ?', true) }
-  scope :tomorrow, -> { where(id: Event.tomorrow_ids) }
+  scope :tomorrow, -> { where(id: Event.tomorrow_events_ids) }
 
   def set_schedule
     self.schedule = BuildSchedule.new(self.date, self.recurring_rule).build_schedule
@@ -24,7 +24,7 @@ class Event < ActiveRecord::Base
     self.schedule.to_hash[:rrules]
   end
 
-  def self.tomorrow_ids
+  def self.tomorrow_events_ids
     result = []
     self.need_remind.each do |event|
       result << event.id if event.schedule.occurs_on?(Date.today + 1)

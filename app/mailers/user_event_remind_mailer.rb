@@ -1,5 +1,5 @@
 class UserEventRemindMailer < ApplicationMailer
-  default from: 'myevent@gmail.com'
+  default from: 'mycalendar@gmail.com'
 
   def remind_events(user)
     @user = user

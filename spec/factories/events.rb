@@ -3,6 +3,7 @@ FactoryGirl.define do
     title "MyString"
     date "2016-08-10"
     recurring_rule "null"
+    remind false
     user
   end
 end
