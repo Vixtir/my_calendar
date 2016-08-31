@@ -1,0 +1,2 @@
+class UserEventRemindMailer < ApplicationMailer
+end

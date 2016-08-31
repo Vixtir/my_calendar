@@ -40,7 +40,7 @@ class Dashboard::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :date, :user_id, :recurring_rule)
+    params.require(:event).permit(:title, :date, :user_id, :recurring_rule, :remind)
   end
 
   def set_user
