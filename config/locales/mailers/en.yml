@@ -1,0 +1,6 @@
+en:
+  user_event_remind_mailer:
+    remind_events:
+     subject: "Event coming soon"
+     welcome: "Dear, %{user}"
+     text: "You have %{count} events tomorrow"
