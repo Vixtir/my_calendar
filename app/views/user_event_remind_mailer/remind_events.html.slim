@@ -1,0 +1,6 @@
+p = t('user_event_remind_mailer.remind_events.welcome', user: @user.email)
+p = t('user_event_remind_mailer.remind_events.text', count: @user.events.need_remind.tomorrow.count)
+ul
+  - @user.events.need_remind.tomorrow.each do |e|
+      li
+        = e.title

@@ -20,6 +20,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-datepicker-rails'
 gem 'puma'
+gem 'whenever', require: false
+gem 'mailgun_rails'
 group :test do
 	gem 'capybara'
 end

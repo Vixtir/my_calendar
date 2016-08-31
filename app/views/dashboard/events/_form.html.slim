@@ -10,6 +10,9 @@
     .col-xs-2
       = f.label :recurring_rule
       = f.select_recurring :recurring_rule
+  .row
+    .col-xs-4
+      = f.input :remind, as: :boolean, checked_value: true, unchecked_value: false
   br
   .row
     .col-xs-4
