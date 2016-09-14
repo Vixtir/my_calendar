@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :event do
     title "MyString"
-    date "2016-08-10"
+    date Date.today
     recurring_rule "null"
     remind false
     user

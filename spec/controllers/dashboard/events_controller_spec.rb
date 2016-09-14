@@ -119,11 +119,13 @@ RSpec.describe Dashboard::EventsController, type: "controller" do
 
     context "user_with 1 event" do
       before do
-        create(:event, user: @user)
+        2.times do
+          create(:event, user: @user)
+        end
       end
 
       it "user have no event" do
-        expect(@user.events.count).to eq 1
+        expect(@user.events.count).to eq 2
       end
 
       it "return 200 status" do
