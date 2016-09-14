@@ -134,5 +134,18 @@ RSpec.describe Dashboard::EventsController, type: "controller" do
         expect(response.content_type).to eq Mime::JSON
       end
     end
+
+    context "many users with actions" do
+      let!(:user_2) do
+        create(:user) do |user|
+          user.events.create(attributes_for(:event, title: "User 2 Event"))
+        end
+      end
+
+      it 'all events' do
+        get "/events.json?all=1"
+        expect(response.content_type).to eq Mime::JSON
+      end
+    end
   end
 end

@@ -94,9 +94,9 @@ RSpec.describe "Event", type: "feature", js: true do
           expect(page).to have_link user.events.first.title
         end
 
-        # it "see user 2 event event" do
-        #   expect(page).to have_content user_2.events.first.title
-        # end
+        it "see user 2 event event" do
+          expect(page).to have_content user_2.events.first.title
+        end
 
         it "user 2 event have no link" do
           expect(page).to_not have_link user_2.events.first.title
