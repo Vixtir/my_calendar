@@ -7,12 +7,12 @@ class Home::UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       auto_login(@user)
-      redirect_to dashboard_welcome_path
+      redirect_to root_path
       flash[:alert] = t("registrate.success")
     else
       flash[:alert] = t("registrate.fail")
       render 'new'
-    end  
+    end
   end
 
   private

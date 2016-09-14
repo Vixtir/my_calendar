@@ -8,7 +8,7 @@ class Dashboard::UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      redirect_to dashboard_welcome_path
+      redirect_to root_path
     else
       render :edit
     end

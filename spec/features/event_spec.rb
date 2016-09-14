@@ -83,7 +83,7 @@ RSpec.describe "Event", type: "feature", js: true do
         end
 
         it "right path with filter" do
-          expect(page).to have_current_path(dashboard_welcome_path(all: "1"))
+          expect(page).to have_current_path(dashboard_events_path(all: "1"))
         end
 
         it "see own event" do

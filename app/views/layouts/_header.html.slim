@@ -10,10 +10,10 @@ nav.navbar.navbar-inverse
           = link_to t('event.create.link'), new_dashboard_user_event_path(current_user)
         - unless params[:all].present?
           li.all_event
-            = link_to t('all_events'), dashboard_welcome_path(:all => "1")
+            = link_to t('all_events'), dashboard_events_path(:all => "1")
         -else
           li.my_event
-            = link_to t('my_events'), dashboard_welcome_path
+            = link_to t('my_events'), dashboard_events_path
     ul.nav.navbar-nav.navbar-right
       - if current_user
         li

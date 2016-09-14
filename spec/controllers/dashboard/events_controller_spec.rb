@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Dashboard::EventsController, type: "controller" do
+  let!(:user_2) do
+    create(:user) do |user|
+      user.events.create(attributes_for(:event, title: "User 2 Event"))
+    end
+  end
   before do
     @user = create(:user)
     login_user
@@ -113,7 +118,9 @@ RSpec.describe Dashboard::EventsController, type: "controller" do
     end
 
     context "user_with 1 event" do
-      before { create(:event, user: @user) }
+      before do
+        create(:event, user: @user)
+      end
 
       it "user have no event" do
         expect(@user.events.count).to eq 1
@@ -131,19 +138,6 @@ RSpec.describe Dashboard::EventsController, type: "controller" do
 
       it "return json formats" do
         get :index, format: :json
-        expect(response.content_type).to eq Mime::JSON
-      end
-    end
-
-    context "many users with actions" do
-      let!(:user_2) do
-        create(:user) do |user|
-          user.events.create(attributes_for(:event, title: "User 2 Event"))
-        end
-      end
-
-      it 'all events' do
-        get "/events.json?all=1"
         expect(response.content_type).to eq Mime::JSON
       end
     end

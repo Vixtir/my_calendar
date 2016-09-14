@@ -152,7 +152,7 @@ RSpec.describe "User", type: "feature" do
     end
 
     it "with valid information redirect to root path" do
-      expect(current_path).to eql dashboard_welcome_path
+      expect(current_path).to eql root_path
     end
 
     it "have succesfull registrate alert" do

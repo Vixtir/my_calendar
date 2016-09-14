@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
-  root "dashboard/welcome#show"
+  root "dashboard/events#index"
 
   namespace :home do
-    get "/welcome" => "welcome#index"  
+    get "/welcome" => "welcome#index"
     get 'login' => 'user_sessions#new', :as => :login
 
     resources :users, only: [:new, :create]
-    resources :user_sessions, only: [:new, :create] 
+    resources :user_sessions, only: [:new, :create]
   end
 
   namespace :dashboard do
-    get "/welcome" => "welcome#show"
     get "/events" => "events#index"
 
     post 'logout' => 'user_sessions#destroy', :as => :logout

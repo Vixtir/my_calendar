@@ -10,7 +10,8 @@ class Dashboard::EventsController < ApplicationController
   def index
     @events = params[:all].present? ? Event.all : @user.events
     respond_to do |format|
-       format.json
+      format.html
+      format.json
     end
   end
 
